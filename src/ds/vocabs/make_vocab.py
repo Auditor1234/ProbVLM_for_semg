@@ -85,4 +85,5 @@ def main(data_path):
 
 
 if __name__ == '__main__':
+    nltk.download('punkt')
     fire.Fire(main)

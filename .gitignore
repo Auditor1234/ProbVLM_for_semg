@@ -3,3 +3,6 @@
 **.zip
 **.npy
 **.txt.gz
+
+.vscode/
+**/__pycache__/
