@@ -1,8 +1,8 @@
 **.ipynb_checkpoints/
-**.pkl
+# **.pkl
 **.zip
 **.npy
-**.txt.gz
+# **.txt.gz
 
 .vscode/
 **/__pycache__/
