@@ -23,11 +23,11 @@ def train_ProbVLM(
     eval_loader,
     Cri = TempCombLoss(),
     device='cuda',
-    dtype=torch.cuda.FloatTensor(),
+    dtype=torch.float,
     init_lr=1e-4,
     num_epochs=100,
     eval_every=1,
-    ckpt_path='../ckpt/ProbVLM',
+    ckpt_path='ckpt/ProbVLM',
     cross_modal_lambda=1e-4,
     T1=1e0,
     T2=5e-2
@@ -80,6 +80,7 @@ def train_ProbVLM(
             all_loss.append(eph_loss)
             print('Avg. loss: {}'.format(eph_loss))
         # evaluate and save the models
+        
         torch.save(BayesCap_Net.state_dict(), ckpt_path+'_last.pth')
         if eph%eval_every == 0:
             curr_score = eval_ProbVLM(
@@ -101,7 +102,7 @@ def eval_ProbVLM(
     BayesCap_Net,
     eval_loader,
     device='cuda',
-    dtype=torch.cuda.FloatTensor,
+    dtype=torch.float,
 ):
     CLIP_Net.to(device)
     CLIP_Net.eval()
@@ -148,7 +149,7 @@ def train_ProbVLM_HF(
     eval_loader,
     Cri = TempCombLoss(),
     device='cuda',
-    dtype=torch.cuda.FloatTensor(),
+    dtype=torch.float,
     init_lr=1e-4,
     num_epochs=100,
     eval_every=1,
@@ -241,7 +242,7 @@ def eval_ProbVLM_HF(
     BayesCap_Net,
     eval_loader,
     device='cuda',
-    dtype=torch.cuda.FloatTensor,
+    dtype=torch.float,
 ):
     CLIP_Net['img'].to(device)
     CLIP_Net['txt'].to(device)

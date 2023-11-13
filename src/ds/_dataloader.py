@@ -268,7 +268,7 @@ def prepare_cub_dataloaders(dataloader_config,
                             caption_root,
                             dataset_name='cub',
                             vocab_path='./vocabs/cub_vocab.pkl',
-                            num_workers=6):
+                            num_workers=0):
     """Prepare CUB Caption train / val / test dataloaders
     CUB Caption loader has a fixed batch size
     - train loader: # classes (trainval = 100, full = 150)

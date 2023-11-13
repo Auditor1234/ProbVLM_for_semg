@@ -47,10 +47,11 @@ def build_vocab(data_path, threshold):
     """Build a simple vocabulary wrapper."""
     counter = Counter()
     captions = []
-    for cname in os.listdir(data_path):
-        for fname in os.listdir(os.path.join(data_path, cname)):
-            full_path = os.path.join(data_path, cname, fname)
-            captions.extend(from_txt(full_path))
+    # for cname in os.listdir(data_path):
+    #     for fname in os.listdir(os.path.join(data_path, cname)):
+    #         full_path = os.path.join(data_path, cname, fname)
+    full_path = data_path
+    captions.extend(from_txt(full_path))
 
     for i, caption in tqdm(enumerate(captions), total=len(captions)):
         tokens = nltk.tokenize.word_tokenize(
